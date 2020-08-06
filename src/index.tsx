@@ -1,7 +1,15 @@
 import { NativeModules } from 'react-native';
 
+type ZendeskSupportLocale = 'es' | 'en';
+
 type ZendeskSupportType = {
-  multiply(a: number, b: number): Promise<number>;
+  openTickets(subject: string): Promise<boolean>;
+  initialization(
+    appId: string,
+    clientId: string,
+    zendeskUrl: string,
+    locale?: ZendeskSupportLocale | undefined
+  ): Promise<boolean>;
 };
 
 const { ZendeskSupport } = NativeModules;
