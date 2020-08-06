@@ -1,5 +1,5 @@
 {
-  "name": "react-native-zendesk-support",
+  "name": "@el12n/react-native-zendesk-support",
   "version": "0.2.0",
   "description": "ZendeskSupport SDK ported to React-Native",
   "main": "lib/commonjs/index",
