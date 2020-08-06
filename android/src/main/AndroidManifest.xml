@@ -1,4 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.reactnativezendesksupport">
+  package="com.reactnativezendesksupport">
 
+  <application>
+    <activity
+      android:name="zendesk.support.requestlist.RequestListActivity"
+      android:theme="@style/DarkTheme" />
+    <activity
+      android:name="zendesk.support.request.RequestActivity"
+      android:theme="@style/DarkTheme" />
+  </application>
 </manifest>
