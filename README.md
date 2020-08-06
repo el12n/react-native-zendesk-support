@@ -2,27 +2,19 @@
 
 A wrapper for the ZendeskSupport SDK for both android and ios.
 
-## Installation
+## Getting started
 
-```sh
-npm install react-native-zendesk-support
+If you are using `react-native >= 0.60` you just need to do a simple:
+
+```shell
+yarn add react-native-zendesk-support
 ```
 
-#### iOS Configuration
+Or if are using npm:
 
-Configure the project:
-```
-cd ios && pod init
-```
 
-Add the next line to your **PodFile**:
-```diff
-+ pod 'react-native-zendesk-support', :path => '../node_modules/react-native-zendesk-support/ios'
-```
-
-Install the react-native-zendesk-support pod:
-```
-pod install
+```shell
+npm i react-native-zendesk-support --save
 ```
 
 ## Usage
@@ -30,7 +22,7 @@ pod install
 ```js
 import ZendeskSupport from "react-native-zendesk-support";
 
-// Initialize the Zendesk Support SDK in the following form:
+// Initialize the Zendesk Support SDK in the following form, at the very beginning of your app:
 const result = await ZendeskSupport.initialization(
     appId: string,
     clientId: string,
