@@ -24,14 +24,15 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
-    "release": "release-it",
-    "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods"
+    "release": "release-it"
   },
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "zendesk",
+    "support",
+    "sdk"
   ],
   "repository": "https://github.com/el12n/react-native-zendesk-support",
   "author": "Alvaro De La Cruz <alvarolock@gmail.com> (https://github.com/el12n)",
@@ -130,5 +131,6 @@
     "source": "src",
     "output": "lib",
     "targets": ["commonjs", "module", "typescript"]
-  }
+  },
+  "nativePackage": true
 }
