@@ -1,6 +1,7 @@
 package com.reactnativezendesksupport
 
 import android.content.Context
+import android.content.Intent
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
@@ -10,6 +11,7 @@ import zendesk.core.Identity
 import zendesk.core.Zendesk
 import zendesk.support.Support
 import zendesk.support.request.RequestActivity
+import zendesk.support.requestlist.RequestListActivity
 
 class ZendeskSupportModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
@@ -30,12 +32,15 @@ class ZendeskSupportModule(reactContext: ReactApplicationContext) : ReactContext
   }
 
   @ReactMethod
-  fun openTickets(subject: String, promise: Promise){
+  fun openTickets(subject: String, promise: Promise) {
     val context: Context = reactApplicationContext.applicationContext
-    RequestActivity.builder()
-      .withRequestSubject(subject)
-      .withTags("Android")
-      .show(context)
+    val config = RequestActivity.builder().withRequestSubject(subject).withTags("Android").config()
+    val intent: Intent = RequestListActivity.builder()
+      .intent(context, config)
+
+    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+
+    context.startActivity(intent)
 
     promise.resolve(true)
   }

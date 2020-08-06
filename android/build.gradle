@@ -5,11 +5,10 @@ buildscript {
   repositories {
     google()
     jcenter()
-    maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:4.0.1'
+    classpath 'com.android.tools.build:gradle:3.2.1'
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
@@ -63,6 +62,7 @@ repositories {
   mavenCentral()
   jcenter()
   google()
+  maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
 
   def found = false
   def defaultDir = null
