@@ -12,14 +12,14 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_REMAP_METHOD(initialization, initializeWithAppId:(nonnull NSString*)appId andClientId:(nonnull NSString*)clientId andZendeskUrl:(nonnull NSString*)zendeskUrl andLocale:(NSString*)locale withResolver:(RCTPromiseResolveBlock)resolve
+RCT_REMAP_METHOD(initialization, initializeWithAppId:(nonnull NSString*)appId andClientId:(nonnull NSString*)clientId andZendeskUrl:(nonnull NSString*)zendeskUrl andToken:(nonnull NSString*)token andLocale:(NSString*)locale withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject) {
     ZDKCoreLogger.enabled = true;
     [ZDKZendesk initializeWithAppId: appId
                            clientId: clientId
                          zendeskUrl: zendeskUrl];
     [ZDKSupport initializeWithZendesk: [ZDKZendesk instance]];
-    id<ZDKObjCIdentity> userIdentity = [[ZDKObjCAnonymous alloc] initWithName:nil email:nil];
+    id<ZDKObjCIdentity> userIdentity = [[ZDKObjCJwt alloc] initWithToken:token];
     [[ZDKZendesk instance] setIdentity:userIdentity];
     
     if(locale != NULL){

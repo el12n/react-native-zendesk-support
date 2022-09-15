@@ -5,6 +5,7 @@ declare type ZendeskSupportType = {
     appId: string,
     clientId: string,
     zendeskUrl: string,
+    token: string,
     locale?: ZendeskSupportLocale | undefined
   ): Promise<boolean>;
 };
